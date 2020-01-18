@@ -8,11 +8,8 @@ public class FullSearch {
         HashSet<String> numbers = new HashSet<>();
         for (Task t : list
              ) {
-            if (!numbers.equals(t.getNumber())){
-                numbers.add(t.getNumber());
-            }
-
-        }
+           numbers.add(t.getNumber());
+         }
         return numbers;
     }
 }
