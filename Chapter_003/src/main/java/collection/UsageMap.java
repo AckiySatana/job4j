@@ -9,6 +9,6 @@ public class UsageMap {
         map.put("barankin@yandex.ru", "Бубликов Пончик Кексович");
         for (String key: map.keySet()) {
             System.out.println(key + map.get(key));
-        }
+         }
     }
 }
