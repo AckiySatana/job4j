@@ -2,15 +2,18 @@ package tracker;
 
 import java.util.List;
 
-/**
- Необходимо создать модель User с полями name, age.
 
- Класс User должен реализовать интерфейс Comparable.
- */
+import java.util.Objects;
+
 
 public class User implements Comparable<User> {
-    String name;
-    int age;
+    private String name;
+    private int age;
+
+    User(String name, int age) {
+        setName(name);
+        setAge(age);
+    }
 
     public int getAge() {
         return age;
@@ -30,6 +33,6 @@ public class User implements Comparable<User> {
 
     @Override
     public int compareTo(User o) {
-        return Integer.compare(this.age, o.age);
+        return name.equals(o.getName()) ? name.compareTo(o.name) : Integer.compare(age, o.getAge());
     }
 }
