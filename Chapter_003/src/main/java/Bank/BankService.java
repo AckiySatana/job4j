@@ -40,7 +40,7 @@ public class BankService {
         User user = findByPassport(passport);
         Account account = null;
         for (Account acc : users.get(user)) {
-            if (acc.getRequisite().contains(requisite)) {
+            if (acc.getRequisite().equals(requisite)) {
                 account = acc;
                 System.out.println("finded req " + account.getBalance());
                 break;
@@ -56,12 +56,7 @@ public class BankService {
         //найдем клиентов: отправителя и получателя
         User sender = findByPassport(srcPassport) , rec = findByPassport(destPassport);
 
-        //проверим что счета есть
-        if (    users.get(sender).indexOf(findByRequisite(destPassport,dеstRequisite))  >= 0
-                && users.get(rec).indexOf(findByRequisite(srcPassport,srcRequisite))    >= 0) {
-            System.out.println("accounts exists");
-            // найдем счета
-            Account acc_send = findByRequisite(srcPassport,srcRequisite);
+        Account acc_send = findByRequisite(srcPassport,srcRequisite);
             Account acc_dest = findByRequisite(destPassport,dеstRequisite);
 
             if (acc_send.getBalance() >= amount) {
@@ -69,7 +64,6 @@ public class BankService {
                 acc_dest.setBalance(acc_dest.getBalance() + amount);
                 rsl = true;
             }
-        }
         return rsl;
     }
 }
