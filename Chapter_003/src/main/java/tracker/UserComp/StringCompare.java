@@ -11,7 +11,7 @@ public class StringCompare implements Comparator<String> {
      * Иначе простое посимвольное сравнение символа типа Char
      */
     public int compare(String left, String right) {
-        int result=99, mlength = Math.min(left.length(),right.length());
+        int result=0, mlength = Math.min(left.length(),right.length());
        if (left.equals(right)) {
             result = 0;
          } else {
