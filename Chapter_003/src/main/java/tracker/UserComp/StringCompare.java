@@ -11,8 +11,22 @@ public class StringCompare implements Comparator<String> {
      * Иначе простое посимвольное сравнение символа типа Char
      */
     public int compare(String left, String right) {
+        int minLenght = Math.min(left.length(), right.length());
+        int index = 0;
+        while (index < minLenght) {
+            char leftChar = left.charAt(index);
+            char rightChar = right.charAt(index);
+            if (leftChar != rightChar) {
+                return leftChar - rightChar;
+            }
+            index++;
+        }
+        return left.length() - right.length();
+    }
+}
+        /*
         int result=0, mlength = Math.min(left.length(),right.length());
-       if (left.equals(right)) {
+        if (left.equals(right)) {
             result = 0;
          } else {
             if (right.substring(0,mlength).equals(left.substring(0,mlength) )){
@@ -30,4 +44,5 @@ public class StringCompare implements Comparator<String> {
         }
         return result;
     }
-}
+      */
+
